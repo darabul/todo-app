@@ -1,11 +1,18 @@
 package handler
 
+//тут будет реализована логика работы с http запросами
 import (
+	"github.com/darabul/todo-app/pkg/service"
 	"github.com/gin-gonic/gin"
 )
 
 //штука, которая позволяет обрабатывать запросы на go в виде функций
 type Handler struct {
+	service *service.Service
+}
+
+func NewHandler(service *service.Service) *Handler {
+	return &Handler{service: service}
 }
 
 // инициализируем маршруты, к которым будем обращаться с помощью http методов
